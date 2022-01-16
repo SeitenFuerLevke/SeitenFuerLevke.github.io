@@ -1,0 +1,78 @@
+<html>
+  <body>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-app.js";
+      import {
+        getDatabase,
+        ref as ref,
+        set as dset,
+      } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-database.js";
+      import {
+        getStorage,
+        ref as sref,
+        getDownloadURL,
+        uploadBytesResumable,
+      } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-storage.js";
+      import {
+        getAuth,
+        signInAnonymously,
+      } from "https://www.gstatic.com/firebasejs/9.6.2/firebase-auth.js";
+
+      // TODO: Add SDKs for Firebase products that you want to use
+
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyANiwoxy7G_yCUXzypUZrtTT_bLGTmTg98",
+        authDomain: "levpages.firebaseapp.com",
+        databaseURL:
+          "https://levpages-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "levpages",
+        storageBucket: "levpages.appspot.com",
+        messagingSenderId: "541829647967",
+        appId: "1:541829647967:web:e32c01516fff96909f95ea",
+      };
+
+      // Initialize Firebase
+
+      const app = initializeApp(firebaseConfig);
+      const storage = getStorage();
+      const db = getDatabase();
+      const _fb = {
+        app,
+        db,
+        ref,
+        dset,
+        storage,
+        sref,
+        getDownloadURL,
+        uploadBytesResumable,
+        submitToRealtimeDB,
+      };
+      console.log(_fb);
+
+      function submitToRealtimeDB(rootnode, postdata, id) {
+        console.log("in");
+        if (typeof id === "undefined") {
+          id = Date.now();
+        }
+        var entrypoint = ref(db, rootnode + id);
+        dset(entrypoint, postdata)
+          .then(() => {
+            console.log("realtimeDBUpload");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+        return id;
+      }
+      //const auth = getAuth();
+      //signInAnonymously(auth).then(() => console.log("signed in"));
+      submitToRealtimeDB("reachedPeople", { name: "test" }, "1");
+    </script>
+  </body>
+</html>
