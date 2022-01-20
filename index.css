@@ -1,0 +1,898 @@
+.tableContainer {
+  padding-top: 4px;
+  padding-bottom: 8px;
+}
+
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 5px;
+}
+
+.table-sort {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+.table-sort:before {
+  content: "";
+  position: absolute;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMTAgNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgNUw1IDFMOSA1IiBzdHJva2U9IiMzNzNFNTAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo=");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  width: 10px;
+  height: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.table-row-even {
+  background-color: transparent !important;
+}
+td,
+th[data-tag] {
+  padding: 10px 12px !important;
+  border-bottom: 1px solid #c0cce3;
+}
+td + td,
+th[data-tag] + th[data-tag] {
+  border-left: 1px solid #c0cce3;
+}
+th[data-tag] {
+  font-weight: 500;
+  color: #425f95;
+  background-color: #e3e9f3;
+}
+table.table-bordered.table-striped {
+  border-collapse: collapse;
+  border: 1px solid #c0cce3;
+}
+.table-head-row {
+  background-color: #818080;
+}
+
+.collapsible {
+  background-color: rgb(161, 161, 161);
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active,
+.collapsible:hover {
+  background-color: rgb(129, 129, 129);
+}
+
+.collapsible:after {
+  content: "\002B";
+  color: white;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+@font-face {
+  font-family: Inter;
+  src: local("Inter Medium"), local("Inter-Medium"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-MediumItalic.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-MediumItalic.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Bold"), local("Inter-Bold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Bold.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Bold.woff) format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Semibold"), local("Inter-Semibold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-SemiBoldItalic.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-SemiBoldItalic.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 600;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Black"), local("Inter-Black"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Black.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Black.woff) format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 900;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Light"), local("Inter-Light"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-LightItalicBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-LightItalicBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 300;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Extrabold"), local("Inter-Extrabold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraBoldItalic.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraBoldItalic.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 800;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Medium"), local("Inter-Medium"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Medium.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Medium.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Semibold"), local("Inter-Semibold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-SemiBold.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-SemiBold.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Extralight"), local("Inter-Extralight"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraLightBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraLightBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 200;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Extrabold"), local("Inter-Extrabold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraBold.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraBold.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 800;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Thin"), local("Inter-Thin"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ThinItalicBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ThinItalicBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 100;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Regular"), local("Inter-Regular"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Regular.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-Regular.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Bold"), local("Inter-Bold"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-BoldItalic.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-BoldItalic.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 700;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Extralight"), local("Inter-Extralight"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraLightItalicBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ExtraLightItalicBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 200;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Thin"), local("Inter-Thin"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ThinBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-ThinBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100;
+}
+@font-face {
+  font-family: Inter;
+  src: local("Inter Light"), local("Inter-Light"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-LightBETA.woff2)
+      format("woff2"),
+    url(https://cdn.jotfor.ms/fonts/inter/fonts/Inter-LightBETA.woff)
+      format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 300;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+:focus {
+  outline: 0;
+}
+input,
+textarea {
+  outline: 0;
+  margin: 0;
+  text-align: left;
+}
+textarea::-webkit-resizer {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.852.148a.504.504 0 00-.713 0L.148 5.139a.504.504 0 10.713.713L5.852.861a.504.504 0 000-.713zM5.86 3.14a.48.48 0 00-.68 0L3.142 5.18a.48.48 0 10.68.68L5.86 3.82a.48.48 0 000-.68z' fill='%23C3CAD8'/%3E%3C/svg%3E");
+  background-size: 7px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+button {
+  outline: 0;
+}
+:-ms-input-placeholder {
+  color: #8894ab;
+  font-weight: 300;
+}
+::-ms-input-placeholder {
+  color: #8894ab;
+  font-weight: 300;
+}
+@supports (-webkit-overflow-scrolling: touch) {
+  input,
+  textarea {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 120dpi),
+  not all {
+  body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+}
+.form-all {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 72px auto;
+  width: 100%;
+}
+.form-line,
+[data-wrapper-react="true"] {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+.form-line {
+  padding: 12px 10px;
+  margin: 12px 4px;
+  border-radius: 3px;
+  position: relative;
+  width: 100%;
+  transition: background-color 0.15s;
+}
+.form-line,
+ul.page-section {
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+ul.page-section {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 38px;
+  list-style: none;
+}
+.form-label {
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  word-break: break-word;
+}
+.form-sub-label {
+  font-size: 0.75em;
+  margin-top: 11px;
+  margin-left: 2px;
+  display: block;
+  word-break: break-word;
+}
+.form-sub-label:empty {
+  display: none;
+}
+.form-label-top {
+  width: 100%;
+  margin-left: 2px;
+  margin-bottom: 14px;
+}
+.form-sub-label-container {
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+.form-sub-label-container + .form-sub-label-container {
+  margin-left: 8px;
+}
+li.form-line:not(.form-line-column)[data-type="control_fullname"]
+  .form-input-wide
+  [data-wrapper-react]:not(.extended)
+  .form-sub-label-container
+  + .form-sub-label-container {
+  margin-left: 24px;
+}
+.form-input-wide {
+  width: 100%;
+}
+li.form-line:not(.form-line-column) .form-input-wide[data-layout="half"] {
+  width: calc(50% - 14px);
+}
+.form-line:not(.fixed-width) .form-textbox:not(.time-dropdown) {
+  min-width: 100%;
+  max-width: 100%;
+}
+.form-textbox {
+  padding: 0 0.625em;
+}
+.form-textbox {
+  font-size: 1em;
+  border-radius: 4px;
+  border: 1px solid;
+  display: block;
+  min-width: 100%;
+}
+.form-textbox {
+  height: 2.5em;
+}
+.form-radio-item label {
+  width: 100%;
+  padding-right: 5px;
+  word-break: break-word;
+}
+.form-radio {
+  position: absolute;
+  opacity: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+.form-radio + label {
+  padding-left: 30px;
+  min-height: 20px;
+  font-size: 0.9375em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  word-break: break-word;
+}
+.form-radio + label:before {
+  width: 20px;
+  height: 20px;
+  border: 1px solid;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.form-radio + label:after {
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.form-single-column {
+  width: 100%;
+  display: inline-block;
+}
+.form-single-column .form-radio-item {
+  float: left;
+}
+.form-single-column .form-radio-item:not(.formRadioOther):not(:last-child) {
+  margin-bottom: 10px;
+}
+.form-radio + label {
+  display: inline-block;
+}
+.form-radio + label:before {
+  border-radius: 50%;
+  transition: border-color 0.15s;
+}
+.form-radio + label:after {
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+.form-radio:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+.form-radio:checked + label:before {
+  border-color: #2e69ff;
+}
+.page-section li[data-type="control_button"] {
+  padding: 0;
+  margin: 0;
+  background-color: transparent;
+}
+.jf-form-buttons {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 3em;
+  width: auto;
+  min-width: 128px;
+  color: #2c3345;
+  font-size: 1em;
+  border-radius: 4px;
+  background-color: transparent;
+  border: 1px solid;
+  cursor: pointer;
+  font-weight: 500;
+}
+.jf-form-buttons:not(.form-pagebreak-back) {
+  margin-left: 10px;
+}
+.form-buttons-wrapper {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 -38px 10px;
+  padding: 30px 52px;
+  border-top: 1px solid;
+}
+.submit-button {
+  width: auto;
+  min-width: 180px;
+}
+li[data-type="control_head"] {
+  list-style: none;
+}
+.form-header {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.header-text {
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+.httal {
+  text-align: left;
+}
+.httac {
+  text-align: center;
+}
+.htvam {
+  margin-top: auto;
+}
+.htvam {
+  margin-bottom: auto;
+}
+.form-subHeader {
+  font-weight: 500;
+  line-height: 1.6;
+}
+.form-header-group {
+  border-bottom: 1px solid;
+  padding: 14px;
+  margin-top: 1.25em;
+  margin-bottom: 0.75em;
+}
+div.header-large {
+  margin: 0 -38px;
+  padding: 2.5em 52px;
+}
+.header-large .form-header {
+  font-size: 2em;
+}
+.header-large .form-subHeader {
+  font-size: 1em;
+}
+.header-default .form-header {
+  font-size: 1.25em;
+  margin-bottom: 4px;
+}
+.header-default .form-subHeader {
+  font-size: 0.875em;
+  margin-bottom: 4px;
+}
+[data-input-type="phone"] {
+  -ms-flex: 1 1 70%;
+  flex: 1 1 70%;
+}
+li[data-type="control_phone"] .form-sub-label-container input {
+  width: 100%;
+}
+li[data-type="control_text"] {
+  font-size: 0.9375em;
+  line-height: 1.6;
+  word-break: break-word;
+}
+li[data-type="control_text"] ul li {
+  list-style: disc outside;
+}
+.inputContainer {
+  height: 132px;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.jfUpload-heading.forMobile {
+  display: none;
+}
+.jfUpload-heading.forDesktop {
+  display: block;
+}
+.fileupload-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+  font-size: 0;
+}
+li[data-type="control_fileupload"] .qq-uploader {
+  position: relative;
+}
+li[data-type="control_fileupload"] .form-label {
+  word-break: break-word;
+}
+li[data-type="control_fileupload"] .qq-upload-button {
+  border: 1px dashed;
+  border-radius: 4px;
+  height: 132px;
+  font-size: 18px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-weight: 600;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  word-break: break-word;
+  overflow-x: scroll;
+}
+li[data-type="control_fileupload"] .qq-upload-button:before {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='39' height='28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32.375 12.188C31.5 5.688 26 .874 19.375.874 13.687.875 8.75 4.438 6.937 9.813 2.875 10.687 0 14.186 0 18.374c0 4.563 3.563 8.375 8.125 8.75h23.813c3.812-.375 6.812-3.625 6.812-7.5 0-3.688-2.75-6.875-6.375-7.438zm-6.313 3.5c-.125.124-.25.187-.437.187s-.313-.063-.438-.188L20 10.5v12.25c0 .375-.25.625-.625.625s-.625-.25-.625-.625V10.5l-5.188 5.188c-.25.25-.624.25-.874 0s-.25-.626 0-.876l6.25-6.25c.062-.062.125-.124.187-.124.125-.063.313-.063.5 0 .063.062.125.062.188.124l6.25 6.25c.25.25.25.626 0 .876z' fill='%23B3BCCD'/%3E%3C/svg%3E");
+  content: "";
+  width: 39px;
+  height: 28px;
+  margin-bottom: 16px;
+  background-repeat: no-repeat;
+}
+li[data-type="control_fileupload"] .jfUpload-heading {
+  font-size: 14px;
+  color: #57647e;
+  font-weight: 400;
+  margin-top: 6px;
+}
+li[data-type="control_fileupload"] .inputContainer:focus {
+  border-style: solid;
+  border-width: 1px;
+}
+li[data-type="control_fileupload"] .qq-upload-list {
+  padding: 0;
+  list-style: none;
+}
+li[data-type="control_fileupload"] .qq-upload-drop-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding-top: 56px;
+  font-weight: 600;
+  border: 1px dashed #c3cad8;
+  background-color: #fbfcff;
+  display: none;
+  text-align: center;
+  border-radius: 4px;
+  height: 132px;
+  font-size: 18px;
+}
+li[data-type="control_fullname"] .form-sub-label-container {
+  min-width: 0;
+}
+@media (-ms-high-contrast: none), screen and (-ms-high-contrast: active) {
+  .form-buttons-wrapper {
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+  }
+}
+.form-section {
+  margin: 12px 4px;
+}
+body {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  background-color: #f3f3fe;
+  color: #2c3345;
+}
+.form-all {
+  border-radius: 3px;
+  box-shadow: 0 4px 4px rgba(87, 100, 126, 0.21);
+  background-color: #fff;
+  max-width: 752px;
+}
+.form-line {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.form-label {
+  color: #2c3345;
+}
+.form-sub-label {
+  color: #57647e;
+}
+.form-textbox {
+  background-color: #fff;
+  border-color: #b8bdc9;
+  color: #2c3345;
+}
+.form-textbox:hover {
+  border-color: rgba(46, 105, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(46, 105, 255, 0.25);
+}
+.form-textbox:focus {
+  border-color: #2e69ff;
+  box-shadow: 0 0 0 3px rgba(46, 105, 255, 0.25);
+}
+.form-radio + label:before {
+  background-color: #fff;
+  border-color: #b8bdc9;
+}
+.form-radio:hover + label:before {
+  border-color: rgba(46, 105, 255, 0.5);
+  box-shadow: 0 0 0 2px rgba(46, 105, 255, 0.25);
+}
+.form-radio:focus + label:before {
+  border-color: #2e69ff;
+  box-shadow: 0 0 0 3px rgba(46, 105, 255, 0.25);
+}
+.form-radio + label:after {
+  background-color: #2e69ff;
+}
+.form-radio + label {
+  color: #2c3345;
+}
+.form-line-error .form-checkbox:not(:checked) + label:before,
+.form-line-error .form-radio:not(:checked) + label:before {
+  border-color: #f23a3c;
+}
+.form-line-error .form-checkbox:not(:checked):hover + label:before,
+.form-line-error .form-radio:not(:checked):hover + label:before {
+  border-color: #fe8e92;
+  box-shadow: 0 0 0 2px #ffa5a5;
+}
+.form-line-error .form-checkbox:not(:checked):focus + label:before,
+.form-line-error .form-radio:not(:checked):focus + label:before {
+  border-color: #f23a3c;
+  box-shadow: 0 0 0 3px #ffa5a5;
+}
+.jf-form-buttons {
+  border-color: #c3cad8;
+}
+.form-buttons-wrapper {
+  border-color: #e5e7f2;
+}
+.submit-button {
+  background-color: #18bd5b;
+  border-color: #18bd5b;
+  color: #fff;
+}
+.submit-button:hover {
+  background-color: #16aa52;
+}
+.form-header {
+  color: #2c3345;
+  word-break: break-word;
+}
+.form-subHeader {
+  color: #57647e;
+  word-break: break-word;
+}
+.form-header-group {
+  border-color: #ededf1;
+}
+.header-large {
+  border-color: #d7d8e1;
+}
+li[data-type="control_fileupload"] .qq-upload-button {
+  background-color: #fbfcff;
+  color: #2c3345;
+}
+.form-spinner-button-container > :before {
+  color: #57647e;
+}
+.form-spinner-button-container > :hover:before {
+  color: #2e69ff;
+}
+.form-single-column > span:not(.form-checkbox-item) {
+  clear: left;
+}
+.page-section li[data-type="control_button"] > div:first-child {
+  width: 100%;
+}
+.form-radio-item {
+  position: relative;
+}
+li[data-type="control_fileupload"] .jfField {
+  width: 100%;
+}
+li[data-type="control_fileupload"] .jfUpload-container {
+  display: none;
+}
+.form-textbox:not(.validate[Email]) {
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  div.form-all {
+    margin: 0 auto;
+  }
+  ul.form-section {
+    margin: 0;
+    padding: 0 14px;
+  }
+  ul.page-section {
+    max-width: inherit;
+  }
+  li[data-type="control_head"] .form-header-group .header-text {
+    margin-left: 0;
+  }
+  .form-section div.form-header-group.header-large {
+    margin: 0 -14px;
+    padding: 28px;
+  }
+  .form-buttons-wrapper {
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  .form-buttons-wrapper {
+    margin: 0 -14px;
+    padding: 30px 14px;
+  }
+}
+@media screen and (max-width: 480px) {
+  ul.form-section {
+    margin: 0;
+    padding: 0;
+  }
+  .form-section div.form-header-group.header-large {
+    margin: 0;
+    padding: 28px 14px;
+  }
+  label.form-label.form-label-auto {
+    width: 100% !important;
+    text-align: left !important;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+  }
+  .form-line:not(.form-line-column) .form-input-wide[data-layout="half"],
+  .form-textbox {
+    width: 100% !important;
+  }
+  .jf-form-buttons {
+    min-width: 72px;
+    width: auto;
+  }
+  .jf-form-buttons.submit-button {
+    min-width: 100px;
+  }
+  .form-buttons-wrapper {
+    padding: 30px 14px;
+    margin: 0;
+  }
+  li[data-type="control_fullname"] [data-wrapper-react="true"] {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  li[data-type="control_fullname"]
+    [data-wrapper-react="true"]
+    .form-sub-label-container {
+    -ms-flex: 1 1 48%;
+    flex: 1 1 48%;
+  }
+  li.form-line:not(.form-line-column)[data-type="control_fullname"]
+    .form-input-wide
+    .form-sub-label-container:nth-child(3) {
+    margin-left: 0;
+    margin-top: 24px;
+  }
+  li.form-line:not(.form-line-column)[data-type="control_fullname"]
+    .form-input-wide
+    [data-wrapper-react]:not(.extended)
+    .form-sub-label-container
+    + .form-sub-label-container {
+    margin-left: 8px;
+  }
+  .jfUpload-heading.forMobile {
+    display: block;
+  }
+  .jfUpload-heading.forDesktop {
+    display: none;
+  }
+}
